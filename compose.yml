@@ -7,8 +7,8 @@ services:
         PASSWORD: ${COMPOSE_PROJECT_NAME}
     runtime: nvidia
     environment:
-      - "NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}"
+      - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
     restart: unless-stopped
     ports:
-      - "${SSH_PORT}:22"
+      - ${SSH_PORT}:22
