@@ -12,3 +12,5 @@ services:
     restart: unless-stopped
     ports:
       - ${SSH_PORT}:22
+    volumes:
+      - ./${COMPOSE_PROJECT_NAME}:/home/${COMPOSE_PROJECT_NAME}
