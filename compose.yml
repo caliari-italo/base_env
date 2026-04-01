@@ -9,6 +9,7 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    shm_size: '100gb'
     restart: unless-stopped
     ports:
       - ${SSH_PORT}:22
