@@ -9,9 +9,12 @@ services:
     environment:
       - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}
       - NVIDIA_DRIVER_CAPABILITIES=compute,utility
-    ipc: host
     restart: unless-stopped
     ports:
       - ${SSH_PORT}:22
     volumes:
       - ./${COMPOSE_PROJECT_NAME}:/home/${COMPOSE_PROJECT_NAME}
+    shm_size: "16gb"
+    ulimits:
+      memlock: -1
+      stack: 67108864
