@@ -3,13 +3,13 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
-    apt install -y sudo ca-certificates curl openssh-server && \
+    apt install -y --no-install-recommends sudo ca-certificates curl openssh-server && \
     mkdir /var/run/sshd && \
     ssh-keygen -A && \
     apt clean
 
-ARG USERNAME=devuser
-ARG PASSWORD=devpass
+ARG USERNAME
+ARG PASSWORD
 
 # create user
 RUN useradd -m -s /bin/bash ${USERNAME} && \
