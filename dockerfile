@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM nvidia/cuda:13.2.1-cudnn-devel-ubuntu24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
